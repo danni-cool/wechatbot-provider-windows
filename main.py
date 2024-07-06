@@ -10,10 +10,18 @@ from config import conf, get_appdata_dir
 app = Flask(__name__)
 
 WEBHOOK_URL = "http://your-webhook-url.com"  # 替换为你的 webhook URL
-LOGIN_WEBHOOK = f"{WEBHOOK_URL}/login"
-LOGOUT_WEBHOOK = f"{WEBHOOK_URL}/logout"
+LOGIN_WEBHOOK = "https://workflow.danni.cool/webhook/42744c5c-f38c-40d1-9029-06e127edb0b8"
+LOGOUT_WEBHOOK = "https://workflow.danni.cool/webhook/42744c5c-f38c-40d1-9029-06e127edb0b8"
 
-logging.basicConfig(level=logging.INFO)
+# 配置日志记录，将日志写入到 app.log 文件中
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s',
+    handlers=[
+        logging.FileHandler("app.log"),
+        logging.StreamHandler()
+    ]
+)
 
 # 登录成功时调用 webhook
 @itchat.msg_register(itchat.content.TEXT)
@@ -35,14 +43,14 @@ def send_message():
 
 def login_callback():
     try:
-        requests.post(LOGIN_WEBHOOK, json={'status': 'logged_in'})
+        requests.post(LOGIN_WEBHOOK, json={'subject': 'itchat登陆', 'data':'logged_in'})
         logging.info("Logged in successfully")
     except Exception as e:
         logging.error(f"Error in login_callback: {e}")
 
 def logout_callback():
     try:
-        requests.post(LOGOUT_WEBHOOK, json={'status': 'logged_out'})
+        requests.post(LOGOUT_WEBHOOK, json={'subject': 'itchat掉线', 'data':'logged_out'})
         logging.info("Logged out successfully")
     except Exception as e:
         logging.error(f"Error in logout_callback: {e}")

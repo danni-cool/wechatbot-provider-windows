@@ -18,6 +18,17 @@ python3 -m pip install -r requirements.txt
 python3 main.py
 ```
 
+# Function
+
+1. 只实现了一个推消息 API：http://localhost:5000/send_message
+
+- method：post
+- dataType: json
+- 参数：{username: '昵称', message:'发送消息'}
+期望可以帮我测试该版本多就掉线
+
+2. 和该微信号聊天会回复你发送的文字
+
 # Credit
 
 [chatgpt-on-wechat](https://github.com/zhayujie/chatgpt-on-wechat)
