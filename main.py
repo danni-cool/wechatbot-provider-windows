@@ -10,8 +10,8 @@ from config import conf, get_appdata_dir
 app = Flask(__name__)
 
 WEBHOOK_URL = "http://your-webhook-url.com"  # 替换为你的 webhook URL
-LOGIN_WEBHOOK = "https://workflow.danni.cool/webhook/42744c5c-f38c-40d1-9029-06e127edb0b8"
-LOGOUT_WEBHOOK = "https://workflow.danni.cool/webhook/42744c5c-f38c-40d1-9029-06e127edb0b8"
+LOGIN_WEBHOOK = "http://your-webhook-url.com"
+LOGOUT_WEBHOOK = "http://your-webhook-url.com"
 
 # 配置日志记录，将日志写入到 app.log 文件中
 logging.basicConfig(
