@@ -1,6 +1,6 @@
-# itchat-demo
+# wechatbotKit-py-http
 
-基于 chatgpt-on-wechat 的itchat 写的demo，只实现了基本的登陆、自动回复、api推送，登陆、登出调用api, 基于微信网页版协仪-uos头
+使用python3重新构建微信机器人api，底层对接 itchat 或者 wechatferry，作为容器统一对外的一部份
 
 # Install
 
@@ -20,15 +20,10 @@ python3 main.py
 
 # Function
 
-1. 只实现了一个推消息 API：http://localhost:5000/send_message
-
-- method：post
-- dataType: json
-- 参数：{username: '昵称', message:'发送消息'}
-期望可以帮我测试该版本多就掉线
-
-2. 和该微信号聊天会回复你发送的文字
+目前只实现了最简单的回复
+1. 和该微信号聊天会回复你发送的文字
 
 # Credit
 
-[chatgpt-on-wechat](https://github.com/zhayujie/chatgpt-on-wechat)
+- [chatgpt-on-wechat](https://github.com/zhayujie/chatgpt-on-wechat)
+- [WeChatFerry](https://github.com/lich0821/WeChatFerry)
