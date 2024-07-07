@@ -1,4 +1,6 @@
 venv
 itchat.pkl
 QR.png
-run.log
+*.log
+log/*.*
+session
