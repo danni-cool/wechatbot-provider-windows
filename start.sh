@@ -26,4 +26,4 @@ fi
 
 # 启动程序
 echo "启动程序..."
-python3 main.py
+python3 main.py "$@"

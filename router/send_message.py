@@ -1,33 +1,27 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-import jsonify
+from service import wxBot
+from model import create_success_response, create_error_response
+from typing import Any, Optional
 
 router = APIRouter()
-
 # 接受者通用模型
 class receiverType(BaseModel):
-    isRoom: bool
-    # atNameList: []
-    name: str
     wxid: str
-    # data: any
+    name: str
+    atList: list[str]
+    message: Optional[Any]
 
-
-@router.post('/send_text')
+@router.post('/sendMsg')
 async def send_text(data: receiverType):
     id: data.wxid
     name: data.name
-    # atNameList = data.atNameList
-    isRoom = data.isRoom
-    # data: data.data
-
-    # if data is None:
-    #     raise HTTPException(status_code=400, detail="No data provided")
+    msg: data.message
+    atList = data.atList
     
-    # user = itchat.search_friends(name=name)
-
-    # if user:
-    #     itchat.send_msg(message, toUserName=user[0]['UserName'])
-    #     return jsonify({"status": "success", "message": "Message sent!"}), 200
-    # else:
-    #     return jsonify({"status": "error", "message": "User not found!"}), 404
+    try:
+        wxBot.sendTextMsg(id, name, msg, atList)
+        return create_success_response("消息发送成功")
+    
+    except Exception as e:
+        return create_error_response("MSG_SENT_FAILED")
