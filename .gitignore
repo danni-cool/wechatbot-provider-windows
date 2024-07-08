@@ -1,6 +1,6 @@
 venv
 .env
-itchat.pkl
+login-session-uos.pkl
 QR.png
 *.log
 logs/*.*
@@ -142,3 +142,5 @@ instance/
 
 # Local development
 local_settings.py
+
+
