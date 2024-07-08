@@ -1,7 +1,5 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
-import signal
-import config
 from wcferry import Wcf
 
 wcf = None
@@ -12,7 +10,7 @@ def sendText(msg, wxid, at_list):
   wcf.send_text(f"{msg}", wxid, at_list)
 
 # 获取联系人（包括好友、公众号、服务号、群成员……）
-def getAllContacts(self) -> dict:
+def getAllContacts() -> dict:
   """
   获取联系人（包括好友、公众号、服务号、群成员……）
   格式: {"wxid": "NickName"}
@@ -31,10 +29,8 @@ def run(sessionDir, loginCallback, exitCallback):
     global wcf
     wcf = Wcf(debug=True)
 
-    def handler(sig, frame):
-        global wcf
-        wcf.cleanup()  # 退出前清理环境
-        exit(0)
-
-    signal.signal(signal.SIGINT, handler)
+def reset(sig, frame):
+    global wcf
+    wcf.cleanup()  # 退出前清理环境
+    exit(0)
     

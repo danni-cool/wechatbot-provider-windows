@@ -4,7 +4,7 @@ from . import wcf
 from config import global_data
 from common.dir import get_appdata_dir
 
-wxBot = None
+global wxBot
 
 class WXBot:
     def __init__(self, logging):
@@ -88,6 +88,9 @@ class WXBot:
                 self.LOG.error(f"Error in logout_callback: {e}")
 
         self.provider.run(sessionDir=get_appdata_dir(), loginCallback=login_callback, exitCallback=logout_callback)
+        
+    def reset(self, sig, frame):
+        self.provider.reset(sig, frame)
 
 # 登陆方法
 def runBot(logging):
@@ -98,6 +101,6 @@ def runBot(logging):
     except Exception as e:
         logging.error(f"Error in start_wxbot: {e}")
 
-
-    
-    
+def resetBot(sig, frame):
+    global wxBot
+    wxBot.reset(sig, frame)
