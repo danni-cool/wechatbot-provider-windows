@@ -2,5 +2,5 @@ venv
 itchat.pkl
 QR.png
 *.log
-log/*.*
+log/*.log
 session
