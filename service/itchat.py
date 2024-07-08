@@ -1,5 +1,5 @@
 
-# itchat provider适配 
+# itchat provider 适配 
 import os
 from lib import itchat
 from lib.itchat.content import *
@@ -11,7 +11,7 @@ def demo_reply(msg):
 
 # 启动
 def run(sessionDir, loginCallback, exitCallback):
-  status_path = os.path.join(sessionDir, "../session/itchat.pkl")
+  status_path = os.path.join(sessionDir, "../itchat.pkl")
   itchat.auto_login(hotReload=True, enableCmdQR=2, statusStorageDir=status_path,loginCallback=loginCallback, exitCallback=exitCallback)
   itchat.run()
 
