@@ -32,6 +32,7 @@ def run(sessionDir, loginCallback, exitCallback):
     wcf = Wcf(debug=True)
 
     def handler(sig, frame):
+        global wcf
         wcf.cleanup()  # 退出前清理环境
         exit(0)
 
