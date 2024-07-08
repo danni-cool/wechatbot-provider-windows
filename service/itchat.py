@@ -24,7 +24,7 @@ def getAllContacts():
 
 # 启动
 def run(sessionDir, loginCallback, exitCallback):
-  status_path = os.path.join(sessionDir, "../itchat.pkl")
+  status_path = os.path.join(sessionDir, "../login-session-uos.pkl")
   itchat.auto_login(hotReload=True, enableCmdQR=2, statusStorageDir=status_path,loginCallback=loginCallback, exitCallback=exitCallback)
   itchat.run()
 

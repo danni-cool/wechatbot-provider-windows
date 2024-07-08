@@ -90,7 +90,7 @@ class WXBot:
         self.provider.run(sessionDir=get_appdata_dir(), loginCallback=login_callback, exitCallback=logout_callback)
 
 # 登陆方法
-def start(logging):
+def runBot(logging):
     try:
        global wxBot
        wxBot = WXBot(logging)
