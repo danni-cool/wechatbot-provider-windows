@@ -7,8 +7,8 @@ ENV LANG=en_US.UTF-8
 ENV LANGUAGE=en_US.UTF-8
 ENV WINEARCH=win64
 ENV DISPLAY=:0.0
-ENV WINEPREFIX=/home/docker/.wine
-ENV HOME=/home/docker/
+ENV WINEPREFIX=/home/root/.wine
+ENV HOME=/home/root/
 ENV NOVNC_HOME=/usr/libexec/noVNCdim
 
 # Updating and upgrading a bit.
@@ -52,22 +52,22 @@ RUN apt-get update && \
     curl -SL -k https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks  -o /usr/local/bin/winetricks && \
     chmod a+x /usr/local/bin/winetricks  && \
     # Create user for ssh
-    adduser \
-            --home /home/docker \
-            --disabled-password \
-            --shell /bin/bash \
-            --gecos "user for running application" \
-            --quiet \
-            docker && \
-    echo "docker:1234" | chpasswd && \
-    adduser docker sudo && \
+    # adduser \
+    #         --home /home/docker \
+    #         --disabled-password \
+    #         --shell /bin/bash \
+    #         --gecos "user for running application" \
+    #         --quiet \
+    #         docker && \
+    echo "root:1234" | chpasswd && \
+    # adduser docker sudo && \
     # Clone noVNC
     mkdir -p "${NOVNC_HOME}"/utils/websockify && \
     curl -L https://github.com/novnc/noVNC/archive/v1.3.0.tar.gz | tar xz --strip 1 -C "${NOVNC_HOME}" && \
     curl -L https://github.com/novnc/websockify/archive/v0.10.0.tar.gz | tar xz --strip 1 -C "${NOVNC_HOME}"/utils/websockify && \
     chmod +x -v "${NOVNC_HOME}"/utils/novnc_proxy && \
     ln -s "${NOVNC_HOME}"/vnc.html "${NOVNC_HOME}"/index.html && \
-    chown -R docker "${NOVNC_HOME}" && \
+    chown -R root "${NOVNC_HOME}" && \
     # Cleaning up.
     apt-get autoremove -y --purge && \
     apt-get clean -y && \
@@ -76,11 +76,11 @@ RUN apt-get update && \
 
 
 # 复制应用程序代码到工作目录
-COPY . /home/docker
+COPY . /home/root
 
 COPY linux/bin /bin
 
-COPY linux/.fluxbox /home/docker/.fluxbox
+COPY linux/.fluxbox /home/root/.fluxbox
 
 # Add supervisor conf
 COPY linux/conf.d/* /etc/supervisor/conf.d/

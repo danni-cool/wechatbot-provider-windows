@@ -1,0 +1,8 @@
+version: '0.1'
+services:
+  wxBotWebhook:
+    image: win
+    container_name: wxbot_win_service
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
