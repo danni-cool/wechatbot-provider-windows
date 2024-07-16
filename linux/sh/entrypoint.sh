@@ -1,12 +1,12 @@
 #!/bin/bash
 function check_vnc_pass {
   if [[ -n $VNC_PASSWORD ]]; then
-    local VNC_PASSWD_PATH="/home/docker/.vnc/passwd"
+    local VNC_PASSWD_PATH="/home/root/.vnc/passwd"
     rm -f $VNC_PASSWD_PATH
-    if [[ ! -d "/home/docker/.vnc" ]]; then mkdir -p /home/docker/.vnc;fi
+    if [[ ! -d "/home/root/.vnc" ]]; then mkdir -p /home/root/.vnc;fi
     x11vnc -storepasswd "$VNC_PASSWORD" "$VNC_PASSWD_PATH"
     export X11_ARGS="-rfbauth $VNC_PASSWD_PATH"
-    chown docker $VNC_PASSWD_PATH
+    chown root $VNC_PASSWD_PATH
     chmod 600 $VNC_PASSWD_PATH
   else
     export X11_ARGS=""
