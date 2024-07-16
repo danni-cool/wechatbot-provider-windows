@@ -1,7 +1,7 @@
-version: '0.1'
+version: '3.9'
 services:
   wxBotWebhook:
-    image: danni-cool/wechatbot-webhook:windows
+    image: dannicool/docker-wechatbot-webhook:windows
     container_name: wxbot_win_service
     ports:
       - "8080:8080"
