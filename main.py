@@ -18,7 +18,7 @@ logging.basicConfig(
 
 def parse_args():
     parser = argparse.ArgumentParser(description="通过参数指定启动微信机器人协议，不同协议支持的api不同")
-    parser.add_argument('--provider', type=str, default='web', help='默认 web 协议，也可使用 win 协议')
+    parser.add_argument('--provider', type=str, default='win', help='默认 web 协议，也可使用 win 协议')
     return parser.parse_args()
 
 def startFastApi():

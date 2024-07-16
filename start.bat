@@ -18,6 +18,6 @@ if exist requirements.txt (
 )
 
 echo Starting program...
-python main.py --provider win
+python main.py
 
 endlocal
