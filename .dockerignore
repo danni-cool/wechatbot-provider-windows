@@ -1,5 +1,4 @@
 .github
-.git
 .editorconfig
 .versionrc.js
 node_modules
