@@ -25,7 +25,7 @@ def startFastApi():
     app = FastAPI()
     app.include_router(get_routers())
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8001)
+    uvicorn.run(app, host="0.0.0.0", port=8888)
 
 def main():
     args = parse_args()

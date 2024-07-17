@@ -20,10 +20,8 @@ RUN echo "root:123" | chpasswd \
 
 # Port for xRDP
 EXPOSE 3389
-# Port for WeChatFerry command
-EXPOSE 8001
-# Port for WeChatFerry message
-EXPOSE 8002
+# Port for http service
+EXPOSE 8888
 
 ENTRYPOINT ["./entrypoint.sh"]
 CMD ["bash"]
