@@ -7,9 +7,9 @@ session
 docker/res/install/*.exe
 .git
 # Byte-compiled / optimized / DLL files
-# __pycache__/
-# *.py[cod]
-# **/*/__pycache__/*.pyc
+__pycache__/
+*.py[cod]
+**/*/__pycache__/*.pyc
 
 # Distribution / packaging
 .Python
