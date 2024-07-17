@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=WeChatSetup
+Name=1.python3Setup
 Type=Application
 Exec=lxterminal --command "wine /root/res/install/python-*.exe"
 StartupNotify=true

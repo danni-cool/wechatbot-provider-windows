@@ -1,6 +1,7 @@
 [Desktop Entry]
-Name=StartService
+Name=3.StartService
 Type=Application
 Exec=lxterminal --command "wine /root/res/start.bat"
 StartupNotify=true
 Path=/root/res
+Icon=E03C_WeChat.0

@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=WeChatSetup
+Name=2.WeChatSetup
 Type=Application
 Exec=lxterminal --command "wine /root/res/install/WeChatSetup-*.exe"
 StartupNotify=true
