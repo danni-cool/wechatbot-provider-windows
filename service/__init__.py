@@ -1,5 +1,5 @@
 import requests
-from . import itchat
+# from . import itchat
 from . import wcf
 from config import global_data
 from common.dir import get_appdata_dir
@@ -13,7 +13,7 @@ class WXBot:
         self.wxid = ''
 
         provider = {
-            'web': itchat,
+            # 'web': itchat,
             'win': wcf
         }
 
