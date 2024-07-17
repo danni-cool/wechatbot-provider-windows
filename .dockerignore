@@ -6,5 +6,5 @@ node_modules
 script
 docs
 venv
-login-session-uos.pkl
 logs/*
+res/*.exe

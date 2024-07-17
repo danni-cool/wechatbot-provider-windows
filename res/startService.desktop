@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=StartService
+Type=Application
+Exec=lxterminal --command "wine /root/start.bat"
+StartupNotify=true
+Path=/root/res

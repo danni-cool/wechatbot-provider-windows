@@ -1,11 +1,10 @@
 venv
 .env
-login-session-uos.pkl
 QR.png
 *.log
 logs/*.*
 session
-
+res/*.exe
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
