@@ -10,7 +10,7 @@ RUN dnf update -y \
         && dnf install -y git \
         && dnf clean all
 
-COPY . ./res
+COPY ./res ./res
 
 RUN echo "root:123" | chpasswd \
         && mkdir ~/Desktop \

@@ -6,4 +6,4 @@ script
 docs
 venv
 logs/*
-res/*.exe
+docker/res/install/*.exe
