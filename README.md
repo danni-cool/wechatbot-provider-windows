@@ -1,9 +1,7 @@
-# wechat-provider-wcferry
-这是一个可以使用 docker 部署的pc版微信，对外暴露了rpc调用的钩子。当然你也可以fork项目代码，完全用http实现，该项目提供了一个比较简单的示例。
+# wechatbot-provider-windows
+这是一个可以使用 docker 部署的 pc 版微信，对外暴露了 rpc 调用的钩子。
+当然你也可以 fork 项目继续完善代码用 http 实现，该项目集成了一个小型的 fastapi 服务端。
 
-# 感谢
-
-thanks to [](wechat-provider-wcferry)
 
 # 免责声明
 
@@ -22,10 +20,24 @@ thanks to [](wechat-provider-wcferry)
 作者保留对本作品的所有权利。使用者在使用本作品时，视为同意本免责声明的所有条款。如有任何违反上述条款的行为，使用者应当立即停止使用本作品，并自行承担相应的法律责任。
 
 
+# 硬件要求：
 
-# Credit
+  - 磁盘：构建的镜像大小约5G。安装微信后达到7G，长期使用将持续扩大；
+  - 内存：正常运行是2-3g，初始化安装程序会占用到7g，所以给一个8g的内存比较稳妥
+  - CPU：至少 1Ghz吧
 
-本项目只是对以下两个项目的整合，所以最终的贡献还是离不开以下两位大神的努力，大家有空给他们加🌟
+# Install
+
+## 1. 拉取镜像
+
+## 2. 启动镜像
+
+## 3. 安装应用
+
+
+# 鸣谢
+
+本项目只是对以下两个项目的整合，所以最终的贡献还是属于以下两位大佬的项目。
 
 - [wechat_box](https://github.com/Saroth/docker_wechat)
 - [WeChatFerry](https://github.com/lich0821/WeChatFerry)

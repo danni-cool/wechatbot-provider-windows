@@ -2,5 +2,5 @@
 
 docker build \
     --platform linux/amd64 \
-    -t dannicool/wechatbotkit-py-http .
+    -t dannicool/wechatbot-provider-windows .
 
