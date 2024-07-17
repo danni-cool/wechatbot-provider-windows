@@ -5,7 +5,7 @@ QR.png
 logs/*.*
 session
 docker/res/install/*.exe
-
+.git
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

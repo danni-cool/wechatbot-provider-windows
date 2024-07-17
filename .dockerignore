@@ -7,3 +7,4 @@ docs
 venv
 logs/*
 docker/res/install/*.exe
+.git
