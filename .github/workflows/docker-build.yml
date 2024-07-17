@@ -29,5 +29,5 @@ jobs:
           context: .
           file: ./docker/Dockerfile
           push: true
-          tags: dannicool/wechatbotKit-py-http:latest
+          tags: dannicool/wechatbotkit-py-http:latest
           platforms: linux/amd64
