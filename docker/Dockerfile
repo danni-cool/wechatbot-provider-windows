@@ -21,7 +21,11 @@ RUN echo "root:123" | chpasswd \
 # Port for xRDP
 EXPOSE 3389
 # Port for http service
-EXPOSE 8888
+# EXPOSE 8888
+# Port for rpc send msg
+EXPOSE 10086
+# Port for rpc recv msg
+EXPOSE 10087
 
 ENTRYPOINT ["./entrypoint.sh"]
 CMD ["bash"]
