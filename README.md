@@ -1,8 +1,9 @@
-# wechatbotKit-py-http
+# wechat-provider-wcferry
+这是一个可以使用 docker 部署的pc版微信，对外暴露了rpc调用的钩子。当然你也可以fork项目代码，完全用http实现，该项目提供了一个比较简单的示例。
 
-# 介绍
+# 感谢
 
-使用python3重新构建微信机器人api，底层对接wechatferry，作为容器统一对外的一部份
+thanks to [](wechat-provider-wcferry)
 
 # 免责声明
 
@@ -20,19 +21,11 @@
 
 作者保留对本作品的所有权利。使用者在使用本作品时，视为同意本免责声明的所有条款。如有任何违反上述条款的行为，使用者应当立即停止使用本作品，并自行承担相应的法律责任。
 
-# deps
-依赖python3环境
 
-# start
-
-```bash
-./start.sh
-```
-
-# Function
-1. 移除对 itchat 的支持
-2. 跑通了wechatFerry 环境的调试
 
 # Credit
 
+本项目只是对以下两个项目的整合，所以最终的贡献还是离不开以下两位大神的努力，大家有空给他们加🌟
+
+- [wechat_box](https://github.com/Saroth/docker_wechat)
 - [WeChatFerry](https://github.com/lich0821/WeChatFerry)
