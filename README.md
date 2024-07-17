@@ -17,5 +17,4 @@
 
 # Credit
 
-- [chatgpt-on-wechat](https://github.com/zhayujie/chatgpt-on-wechat)
 - [WeChatFerry](https://github.com/lich0821/WeChatFerry)
