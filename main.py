@@ -1,11 +1,11 @@
-import signal
-import argparse
 import logging
-from config import global_data
-from fastapi import FastAPI
-from router import get_routers
-from service import runBot, resetBot
+import ctypes
+import os
+import signal
+import atexit
+import time
 
+global sdk
 # 配置日志记录，将日志写入到 app.log 文件中
 logging.basicConfig(
     level=logging.INFO,
@@ -16,30 +16,45 @@ logging.basicConfig(
     ]
 )
 
-def parse_args():
-    parser = argparse.ArgumentParser(description="通过参数指定启动微信机器人协议，不同协议支持的api不同")
-    parser.add_argument('--provider', type=str, default='win', help='默认 web 协议，也可使用 win 协议')
-    return parser.parse_args()
-
-def startFastApi():
-    app = FastAPI()
-    app.include_router(get_routers())
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8888)
+def cleanup():
+    global sdk
+    # 退出 SDK
+    if sdk:
+        sdk.WxDestroySDK()
+    os._exit(-1)
+    
+def registerCleanup():
+    atexit.register(cleanup)
+    signal.signal(signal.SIGINT, cleanup)
+    
+def run():
+    logging.info(f'SDK 初始化成功，rpc调用地址为：tcp://0.0.0.0:10086')
+    try:
+        while True:
+            time.sleep(1)
+    except Exception as e:
+        logging.error('%s', e)
+        cleanup()
+        
+def initialize_sdk():
+    global sdk
+    sdkPath = os.path.abspath(os.path.dirname(__file__))
+    # 加载 sdk.dll （需要绝对路径）
+    sdk = ctypes.cdll.LoadLibrary(f"{sdkPath}/sdk/sdk.dll")
+    # 退出的时候停止消息接收，防止资源占用
+    registerCleanup()
+    # 初始化
+    sdk.WxInitSDK(True, 10086)
+    logging.info('SDK 初始化...')
 
 def main():
-    args = parse_args()
-    global_data['provider'] = args.provider
-    logging.info(f"当前启动的是{global_data['provider']}协议")
-
-    # 运行应用
-    if __name__ == "__main__":
-        runBot(logging)
-        
-        from threading import Thread
-        Thread(target=startFastApi).start()
-        
-    signal.signal(signal.SIGINT, resetBot)
+    while True:
+        try:
+            initialize_sdk()
+            run()
+        except Exception as e:
+            logging.error('主循环异常: %s', e)
+            time.sleep(5)  # 等待一段时间后重启
 
 if __name__ == "__main__":
     main()

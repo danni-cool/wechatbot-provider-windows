@@ -1,6 +1,5 @@
 # wechatbot-provider-windows
 这是一个可以使用 docker 部署的 pc 版微信，对外暴露了 rpc 调用的钩子。
-当然你也可以 fork 项目继续完善代码用 http 实现，该项目集成了一个小型的 fastapi 服务端。
 
 
 # 免责声明
@@ -46,7 +45,6 @@ docker pull dannicool/wechatbot-provider-windows
 docker run -itd \
     -p 13389:3389 \
     -p 10086:10086 \
-    -p 10087:10087 \
     -v install:/root/res/install \
     --ulimit nofile=8192 \
     --name DESKTOP \
@@ -67,7 +65,7 @@ docker run -itd \
 
 2.点击 2.WeChatSetup，**安装 wechat 应用**，并登录
 
-3.点击 3.StartService，启动python程序，转为守护运行状态，这里可能第一次闪退后要运行第二次才能成功
+3.点击 3.StartService，启动python程序暴露rpc地址，程序转为守护运行状态
 
 后续日常重启后，只要点击桌面 wechat 图标登陆后 重复步骤 3 即可
 

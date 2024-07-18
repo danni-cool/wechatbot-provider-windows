@@ -7,7 +7,7 @@ set VENV_DIR=.\venv
 if not exist "%VENV_DIR%" (
     echo Creating venv...
     python -m venv "%VENV_DIR%"
-    "%VENV_DIR%\Scripts\activate"
+    call "%VENV_DIR%\Scripts\activate"
 ) else (
     echo venv already exists, skipping...
 )
