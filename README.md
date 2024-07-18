@@ -60,9 +60,14 @@ docker run -itd \
 ## 5.安装应用
 
 连接上远程桌面后
-1. 点击 1.python3Setup，**安装 python3 环境**
-2. 点击 2.WeChatSetup，**安装 wechat 应用**，并登录
-3. 点击 3.StartService，启动python程序，转为守护运行状态，这里可能第一次闪退后要运行两次才能成功
+
+1.点击 1.python3Setup，**安装 python3 环境**, 需要勾选 `Add python.exe to PATH`
+
+<img src="https://github.com/user-attachments/assets/f7bb6a99-113e-4dbc-bb43-bca079278a0c" width=300 />
+
+2.点击 2.WeChatSetup，**安装 wechat 应用**，并登录
+
+3.点击 3.StartService，启动python程序，转为守护运行状态，这里可能第一次闪退后要运行第二次才能成功
 
 后续日常重启后，只要点击桌面 wechat 图标登陆后 重复步骤 3 即可
 
