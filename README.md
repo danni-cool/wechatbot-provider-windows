@@ -73,7 +73,7 @@ docker run -itd \
 
 **其他说明**
 
-- rpc推消息端口是 10086，收消息端口是 10087
+- rpc推消息端口是 10086
 - wechat 常规配置，左下角Settings：
 - Notifications：关闭所有
 - General -> General：不选所有
