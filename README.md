@@ -44,15 +44,13 @@ docker pull dannicool/wechatbot-provider-windows
 
 ```bash
 docker run -itd \
-    --platform linux/amd64 \
     -p 13389:3389 \
     -p 10086:10086 \
     -p 10087:10087 \
-    -v ./install:/root/res/install
+    -v install:/root/res/install \
     --ulimit nofile=8192 \
     --name DESKTOP \
     dannicool/wechatbot-provider-windows
-
 ```
 
 ## 4. 使用 rdp 连接
