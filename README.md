@@ -24,20 +24,62 @@
 
   - 磁盘：构建的镜像大小约5G。安装微信后达到7G，长期使用将持续扩大；
   - 内存：正常运行是2-3g，初始化安装程序会占用到7g，所以给一个8g的内存比较稳妥
-  - CPU：至少 1Ghz吧
+  - CPU：只支持 X86 架构（amd64），频率至少 1Ghz吧
 
-# Install
+# 安装
 
 ## 1. 拉取镜像
 
-## 2. 启动镜像
+```bash
 
-## 3. 安装应用
+docker pull dannicool/wechatbot-provider-windows
+```
 
+## 2. 准备资源
+
+1. 创建一个本地文件夹install，用来存放安装的资源文件。
+2. 下载 [必要资源](https://github.com/danni-cool/wechatbot-provider-windows/releases/tag/v3.9.10.27)，一个是 python，另一个是 wechat-setup, 都先放到本地文件夹 install
+
+## 3. 启动容器
+
+```bash
+docker run -itd \
+    --platform linux/amd64 \
+    -p 13389:3389 \
+    -p 10086:10086 \
+    -p 10087:10087 \
+    -v ./install:/root/res/install
+    --ulimit nofile=8192 \
+    --name DESKTOP \
+    dannicool/wechatbot-provider-windows
+
+```
+
+## 4. 使用 rdp 连接
+
+1. 推荐 [Microsoft remote desktop](https://apps.microsoft.com/detail/9wzdncrfj3ps?hl=en-US&gl=US)，端口是 133389，默认`root` 密码为`123`
+
+## 5.安装应用
+
+连接上远程桌面后
+1. 点击 1.python3Setup，**安装 python3 环境**
+2. 点击 2.WeChatSetup，**安装 wechat 应用**，并登录
+3. 点击 3.StartService，启动python程序，转为守护运行状态，这里可能第一次闪退后要运行两次才能成功
+
+后续日常重启后，只要点击桌面 wechat 图标登陆后 重复步骤 3 即可
+
+**其他说明**
+
+- wechat 常规配置，左下角Settings：
+- Notifications：关闭所有
+- General -> General：不选所有
+- Manage Files -> Auto-Download：不选
+
+启动并登录后，直接关闭远程桌面，不要Logout。因为登出后图形界面下运行的所有程序都会退出。
 
 # 鸣谢
 
-本项目只是对以下两个项目的整合，所以最终的贡献还是属于以下两位大佬的项目。
+本项目只是对以下两个项目的整合，最终的贡献是属于以下两位大佬的项目
 
 - [wechat_box](https://github.com/Saroth/docker_wechat)
 - [WeChatFerry](https://github.com/lich0821/WeChatFerry)
