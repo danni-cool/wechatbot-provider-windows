@@ -45,11 +45,15 @@ docker pull dannicool/wechatbot-provider-windows
 docker run -itd \
     -p 13389:3389 \
     -p 10086:10086 \
+    -p 10087:10087 \
     -v install:/root/res/install \
     --ulimit nofile=8192 \
     --name DESKTOP \
     dannicool/wechatbot-provider-windows
 ```
+
+- rpc推消息端口是 10086
+- rpc收消息端口是 10087
 
 ## 4. 使用 rdp 连接
 
@@ -71,7 +75,6 @@ docker run -itd \
 
 **其他说明**
 
-- rpc推消息端口是 10086
 - wechat 常规配置，左下角Settings：
 - Notifications：关闭所有
 - General -> General：不选所有
