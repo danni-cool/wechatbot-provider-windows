@@ -20,7 +20,8 @@ def cleanup():
     global sdk
     # 退出 SDK
     if sdk:
-        sdk.WxDestroySDK()
+        if sdk.WxDestroySDK() != 0:
+            logging.error("SDK 退出失败！")
     os._exit(-1)
     
 def registerCleanup():
@@ -44,8 +45,10 @@ def initialize_sdk():
     # 退出的时候停止消息接收，防止资源占用
     registerCleanup()
     # 初始化
-    sdk.WxInitSDK(True, 10086)
     logging.info('SDK 初始化...')
+    if sdk.WxInitSDK(True, 10086) != 0:
+        logging.error('SDK 初始化失败！')
+        os._exit(-1)
 
 def main():
     while True:
