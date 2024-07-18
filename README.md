@@ -55,7 +55,7 @@ docker run -itd \
 
 ## 4. 使用 rdp 连接
 
-1. 推荐 [Microsoft remote desktop](https://apps.microsoft.com/detail/9wzdncrfj3ps?hl=en-US&gl=US)，端口是 133389，默认`root` 密码为`123`
+1. 推荐 [Microsoft remote desktop](https://apps.microsoft.com/detail/9wzdncrfj3ps?hl=en-US&gl=US)，端口是 13389，默认`root` 密码为`123`
 
 ## 5.安装应用
 
@@ -68,6 +68,7 @@ docker run -itd \
 
 **其他说明**
 
+- rpc推消息端口是 10086，收消息端口是 10087
 - wechat 常规配置，左下角Settings：
 - Notifications：关闭所有
 - General -> General：不选所有
@@ -77,7 +78,7 @@ docker run -itd \
 
 # 鸣谢
 
-本项目只是对以下两个项目的整合，最终的贡献是属于以下两位大佬的项目
+本项目只是对以下两个项目的整合，并保证最新的服务可用，最终的贡献是属于以下两位大佬的项目
 
 - [wechat_box](https://github.com/Saroth/docker_wechat)
 - [WeChatFerry](https://github.com/lich0821/WeChatFerry)
