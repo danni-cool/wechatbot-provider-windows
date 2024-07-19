@@ -1,5 +1,5 @@
 # wechatbot-provider-windows
-这是一个可以使用 docker 部署的 pc 版微信，对外暴露了 rpc 调用的钩子。
+这是一个可以使用 docker 部署的 pc 版微信，对外暴露了 rpc 调用的钩子，适配 wechatFerry 的rpc调用
 
 
 # 免责声明
