@@ -1,6 +1,6 @@
 # wechatbot-provider-windows
-这是一个可以使用 docker 部署的 pc 版微信，对外暴露了 rpc 调用的钩子，适配 wechatFerry 的rpc调用
 
+这是一个可以使用 docker 部署的 pc 版微信，对外暴露了 rpc 调用的钩子，适配 wechatFerry 的 rpc 调用
 
 # 免责声明
 
@@ -18,12 +18,11 @@
 
 作者保留对本作品的所有权利。使用者在使用本作品时，视为同意本免责声明的所有条款。如有任何违反上述条款的行为，使用者应当立即停止使用本作品，并自行承担相应的法律责任。
 
-
 # 硬件要求：
 
-  - 磁盘：构建的镜像大小约5G。安装微信后达到7G，长期使用将持续扩大；
-  - 内存：正常运行是2-3g，初始化安装程序会占用到7g，所以给一个8g的内存比较稳妥
-  - CPU：只支持 X86 架构（amd64），频率至少 1Ghz吧
+- 磁盘：构建的镜像大小约 5G。安装微信后达到 7G，长期使用将持续扩大；
+- 内存：正常运行是 2-3g，初始化安装程序会占用到 7g，所以给一个 8g 的内存比较稳妥
+- CPU：只支持 X86 架构（amd64），频率至少 1Ghz 吧
 
 # 安装
 
@@ -36,8 +35,8 @@ docker pull dannicool/wechatbot-provider-windows
 
 ## 2. 准备资源
 
-1. 创建一个本地文件夹install，用来存放安装的资源文件。
-2. 下载 [必要资源](https://github.com/danni-cool/wechatbot-provider-windows/releases/tag/v3.9.10.27)，一个是 python，另一个是 wechat-setup, 都先放到本地文件夹 install
+1. 创建一个本地文件夹 install，用来存放安装的资源文件。
+2. 下载 [必要资源](https://github.com/danni-cool/wechatbot-provider-windows/releases/tag/v3.9.11.25)，一个是 python，另一个是 wechat-setup, 都先放到本地文件夹 install
 
 ## 3. 启动容器
 
@@ -52,8 +51,8 @@ docker run -itd \
     dannicool/wechatbot-provider-windows
 ```
 
-- rpc推消息端口是 10086
-- rpc收消息端口是 10087
+- rpc 推消息端口是 10086
+- rpc 收消息端口是 10087
 
 ## 4. 使用 rdp 连接
 
@@ -69,18 +68,18 @@ docker run -itd \
 
 2.点击 2.WeChatSetup，**安装 wechat 应用**，并登录
 
-3.点击 3.StartService，启动python程序暴露rpc地址，程序转为守护运行状态
+3.点击 3.StartService，启动 python 程序暴露 rpc 地址，程序转为守护运行状态
 
 后续日常重启后，只要点击桌面 wechat 图标登陆后 重复步骤 3 即可
 
 **其他说明**
 
-- wechat 常规配置，左下角Settings：
+- wechat 常规配置，左下角 Settings：
 - Notifications：关闭所有
 - General -> General：不选所有
 - Manage Files -> Auto-Download：不选
 
-启动并登录后，直接关闭远程桌面，不要Logout。因为登出后图形界面下运行的所有程序都会退出。
+启动并登录后，直接关闭远程桌面，不要 Logout。因为登出后图形界面下运行的所有程序都会退出。
 
 # 鸣谢
 
