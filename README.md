@@ -25,7 +25,7 @@ docker pull dannicool/wechatbot-provider-windows
 ## 2. 准备资源
 
 1. 创建一个本地文件夹 install，用来存放安装的资源文件。
-2. 下载 [必要资源](https://github.com/danni-cool/wechatbot-provider-windows/releases/tag/v3.9.11.25)，一个是 python，另一个是 wechat-setup, 都先放到本地文件夹 install
+2. 下载 [必要资源](https://github.com/danni-cool/wechatbot-provider-windows/releases/tag/3.9.11.25)，一个是 python，另一个是 wechat-setup, 都先放到本地文件夹 install
 
 ## 3. 启动容器
 
