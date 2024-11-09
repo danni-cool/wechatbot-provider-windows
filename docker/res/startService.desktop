@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=3.StartService
+Name=StartService
 Type=Application
 Exec=lxterminal --command "/root/start.sh"
 StartupNotify=true
