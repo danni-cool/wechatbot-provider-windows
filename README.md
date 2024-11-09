@@ -4,9 +4,9 @@
 
 # 硬件要求：
 
-- 磁盘：构建的镜像大小约 5G。安装微信后达到 7G，长期使用将持续扩大；
+- 磁盘：构建的镜像大小约 7G。长期使用将持续扩大；
   - Wine 第一次启动，自动初始化后容器占用 1.49G；
-  - 微信安装后，初始状态占用 1.41G。 默认配置已将这部分文件放到宿主机的挂载目录；
+  - 微信安装后，初始状态占用 1.41G。
   - 微信长期使用，磁盘占用会持续增加；
 - 内存：
   - 桌面登录后，总占用 194M；
@@ -15,19 +15,7 @@
 
 # 安装
 
-## 1. 拉取镜像
-
-```bash
-
-docker pull dannicool/wechatbot-provider-windows
-```
-
-## 2. 准备资源
-
-1. 创建一个本地文件夹 install，用来存放安装的资源文件。
-2. 下载 [必要资源](https://github.com/danni-cool/wechatbot-provider-windows/releases/tag/3.9.11.25)，一个是 python，另一个是 wechat-setup, 都先放到本地文件夹 install
-
-## 3. 启动容器
+## 1. 启动容器
 
 ```bash
 docker run -itd \
@@ -43,23 +31,12 @@ docker run -itd \
 - rpc 推消息端口是 10086
 - rpc 收消息端口是 10087
 
-## 4. 使用 rdp 连接
+## 2. 使用 rdp 连接
 
 1. 推荐 [Microsoft remote desktop](https://apps.microsoft.com/detail/9wzdncrfj3ps?hl=en-US&gl=US)，端口是 13389，默认`root` 密码为`123`
 
-## 5.安装应用
+## 3. 点击 startService 等待唤起微信登陆
 
-连接上远程桌面后
-
-1.点击 1.python3Setup，**安装 python3 环境**, 需要勾选 `Add python.exe to PATH`
-
-<img src="https://github.com/user-attachments/assets/f7bb6a99-113e-4dbc-bb43-bca079278a0c" width=300 />
-
-2.点击 2.WeChatSetup，**安装 wechat 应用**，并登录
-
-3.点击 3.StartService，启动 python 程序暴露 rpc 地址，程序转为守护运行状态
-
-后续日常重启后，只要点击桌面 wechat 图标登陆后 重复步骤 3 即可
 
 **其他说明**
 
