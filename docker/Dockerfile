@@ -14,21 +14,23 @@ RUN wget https://github.com/danni-cool/wechatbot-provider-windows/releases/downl
 RUN xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' wine python-installer.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0 \
         && rm -f python-installer.exe
 
-ENV PATH="/root/.wine/drive_c/Program Files/Python312:${PATH}"
-
 RUN wget https://github.com/danni-cool/wechatbot-provider-windows/releases/download/3.9.11.25/WeChatSetup-3.9.11.25.exe -O WeChatSetup.exe && \
         xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' wine WeChatSetup.exe /S && \
         rm -f WeChatSetup.exe
 
-COPY ./docker/res ./res
+ENV PATH="/root/.wine/drive_c/Program Files/Tencent/WeChat:/root/.wine/drive_c/Program Files/Python312:${PATH}"
+
+COPY ./docker ./install
 
 RUN echo "root:123" | chpasswd \
-        && mkdir ~/Desktop \
-        && mv res/*.desktop ~/Desktop \
-        && mv res/*.sh . \
-        && chmod +x /root/entrypoint.sh
-# && unzip -o res/v*.zip -d res
-
+        && mkdir ./Desktop \
+        && mkdir ./logs \
+        && mkdir ./sdk \
+        && mv install/sh/*.desktop ./Desktop \
+        && mv install/sh/*.sh . \
+        && mv install/sdk/* ./sdk \
+        && mv install/app/* . \
+        && chmod +x ./entrypoint.sh
 
 EXPOSE 3389
 EXPOSE 10086
