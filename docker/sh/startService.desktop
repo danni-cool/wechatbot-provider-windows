@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=3.StartService
+Name=StartService
 Type=Application
 Exec=lxterminal --command "/root/start.sh"
 StartupNotify=true
-Path=/root/res
+Path=/root
 Icon=E03C_WeChat.0

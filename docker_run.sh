@@ -6,4 +6,3 @@ docker run -itd \
     --ulimit nofile=8192 \
     --name DESKTOP \
     dannicool/wechatbot-provider-windows
-
