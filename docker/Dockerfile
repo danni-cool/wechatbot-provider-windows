@@ -29,7 +29,7 @@ RUN echo "root:123" | chpasswd \
         && mv install/sh/*.sh . \
         && mv install/sdk/* ./sdk \
         && mv install/app/* . \
-        && chmod +x ./entrypoint.sh 
+        && chmod +x ./entrypoint.sh
 
 RUN     xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' wine install.bat /S && \ 
         rm -f install.bat
