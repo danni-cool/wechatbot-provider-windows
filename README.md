@@ -38,7 +38,6 @@ docker run -itd \
     -p 13389:3389 \
     -p 10086:10086 \
     -p 10087:10087 \
-    -v install:/root/res/install \
     --ulimit nofile=8192 \
     --name DESKTOP \
     dannicool/wechatbot-provider-windows
@@ -48,9 +47,7 @@ docker run -itd \
 - rpc 收消息端口是 10087
 
 目录挂载：
-- 安装资料： ./package => /root/package (仅在第一次安装微信时使用)
 - 程序文件： ./wechat/program => /root/.wine/drive_c/Program\ Files/Tencent/WeChat
-- 图标文件： ./wechat/share/icons => /root/.local/share/icons
 - 用户数据： ./wechat/user_dat => /root/.wine/drive_c/users/root/AppData/Roaming/Tencent/WeChat
 将程序和用户数据目录挂载到宿主机，可避免在容器重置后再次安装程序。
 
