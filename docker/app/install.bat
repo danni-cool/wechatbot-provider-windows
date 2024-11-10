@@ -1,8 +1,8 @@
 @echo off
 setlocal
 
-REM Step 2: Set up virtual environment
 set VENV_DIR=.\venv
+SET PATH=C:\Program Files\Python312;%PATH%     
 
 if not exist "%VENV_DIR%" (
     echo Creating venv...
