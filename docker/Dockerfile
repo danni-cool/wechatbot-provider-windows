@@ -1,6 +1,5 @@
 
 FROM fedora:39
-LABEL describe="Fedora for WeChat hook, based on LXDE, Wine, xRDP, WeChatFerry."
 
 WORKDIR /root
 
@@ -30,8 +29,10 @@ RUN echo "root:123" | chpasswd \
         && mv install/sh/*.sh . \
         && mv install/sdk/* ./sdk \
         && mv install/app/* . \
-        && chmod +x ./entrypoint.sh \
-        && xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' wine install.bat && rm -f install.bat
+        && chmod +x ./entrypoint.sh 
+
+RUN     xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' wine install.bat /S && \ 
+        rm -f install.bat
 
 EXPOSE 3389
 EXPOSE 10086
