@@ -84,6 +84,6 @@ docker run -itd \
 # 鸣谢
 
 本项目只是对以下两个项目的整合，并保证最新的服务可用，最终的贡献是属于以下两位大佬的项目
-
+- chatgpt
 - [wechat_box](https://github.com/Saroth/docker_wechat)
 - [WeChatFerry](https://github.com/lich0821/WeChatFerry)
