@@ -14,14 +14,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Set up Docker for Windows Containers
-        run: |
-          docker context use default
-          & 'C:\Program Files\Docker\Docker\DockerCli.exe' -SwitchDaemon
+      - name: Start Docker Service
+        run: Start-Service Docker
         shell: pwsh
 
-      - name: Verify Docker is using Windows containers
-        run: docker info | Select-String "OSType"
+      - name: Switch to Windows containers
+        run: |
+          & "C:\Program Files\Docker\Docker\DockerCli.exe" -SwitchDaemon
+          docker info
         shell: pwsh
 
       - name: Login to Docker Hub
