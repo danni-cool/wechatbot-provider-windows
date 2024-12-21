@@ -34,6 +34,8 @@ RUN echo "root:123" | chpasswd \
 RUN     xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' wine install.bat /S && \ 
         rm -f install.bat
 
+RUN chmod +x start.sh
+
 EXPOSE 3389
 EXPOSE 10086
 EXPOSE 10087
