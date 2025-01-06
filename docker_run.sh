@@ -5,4 +5,4 @@ docker run -itd \
     -p 13389:3389 \
     --ulimit nofile=8192 \
     --name DESKTOP \
-    dannicool/wechatbot-provider-windows
+    dannicool/wechatbot-provider-windows:wc-3935

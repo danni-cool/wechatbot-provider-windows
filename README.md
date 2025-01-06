@@ -40,23 +40,23 @@ docker run -itd \
     -p 10087:10087 \
     --ulimit nofile=8192 \
     --name DESKTOP \
-    dannicool/wechatbot-provider-windows
+    dannicool/wechatbot-provider-windows:wc-3935
 ```
 
 - rpc 推消息端口是 10086
 - rpc 收消息端口是 10087
 
 目录挂载：
+
 - 程序文件： ./wechat/program => /root/.wine/drive_c/Program\ Files/Tencent/WeChat
 - 用户数据： ./wechat/user_dat => /root/.wine/drive_c/users/root/AppData/Roaming/Tencent/WeChat
-将程序和用户数据目录挂载到宿主机，可避免在容器重置后再次安装程序。
+  将程序和用户数据目录挂载到宿主机，可避免在容器重置后再次安装程序。
 
 ## 2. 使用 rdp 连接
 
 1. 推荐 [Microsoft remote desktop](https://apps.microsoft.com/detail/9wzdncrfj3ps?hl=en-US&gl=US)，端口是 13389，默认`root` 密码为`123`
 
 ## 3. 点击 startService 等待唤起微信登陆
-
 
 **其他说明**
 
@@ -80,10 +80,10 @@ docker run -itd \
 - 解决方案：
   - 建议使用较新的 Linux 发行版。
 
-
 # 鸣谢
 
 本项目只是对以下两个项目的整合，并保证最新的服务可用，最终的贡献是属于以下两位大佬的项目
+
 - chatgpt
 - [wechat_box](https://github.com/Saroth/docker_wechat)
 - [WeChatFerry](https://github.com/lich0821/WeChatFerry)
