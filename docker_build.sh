@@ -4,4 +4,4 @@ docker build \
     --platform linux/amd64 \
     --progress plain \
     -f docker/Dockerfile \
-    -t dannicool/wechatbot-provider-windows:wc-3933 .
+    -t dannicool/wechatbot-provider-windows:latest .
